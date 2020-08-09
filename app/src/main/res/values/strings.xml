@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">TravellingPlaces</string>
+    <string name="access_token">sk.eyJ1IjoiZmFqYXJpa2hzYW4iLCJhIjoiY2tkangzeGhvMGlzdzJ6cm9sMjRhMHBrZyJ9.Cz6TKfytiIB7UirHH06CZg</string>
+    <string name="_10117251">10117251</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="exit">Exit</string>
+    <string name="app">App</string>
+    <string name="about">Aplikasi ini berguna untuk mencari tempat wisata di daerah Kota Bandung. Kamu dapat menyimpan lokasi favorite kamu, kamu juga bisa melihat lokasi, dan bisa diberi arahan untuk sampai ke tempat tujuan.
+        Aplikasi ini dibuat untuk memenuhi tugas pengganti uas dari mata kuliah Aplikasi
+    Komputasi bergerak.</string>
+    <string name="user_location_permission_explanation">This app needs location permissions to show its functionality.</string>
+    <string name="user_location_permission_not_granted">You didn\'t grant location permissions.</string>
+    <string name="detail_desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+        eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+        nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+        irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+        pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+        deserunt mollit anim id est laborum.
+    </string>
+</resources>

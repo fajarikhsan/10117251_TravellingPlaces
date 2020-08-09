@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/home"
+            android:icon="@drawable/ic_home_black_24dp"
+            android:title="Home" />
+    </group>
+
+    <item android:title="About Me">
+        <menu>
+            <item
+                android:id="@+id/profile"
+                android:icon="@drawable/ic_account"
+                android:title="Profile" />
+        </menu>
+    </item>
+
+    <item android:title="Travelling">
+        <menu>
+            <item
+                android:id="@+id/travelList"
+                android:icon="@drawable/places_white"
+                android:title="Places to Travel" />
+
+            <item
+                android:id="@+id/favTravelList"
+                android:icon="@drawable/fav_white"
+                android:title="Favorite Places" />
+        </menu>
+    </item>
+
+    <item android:title="@string/app">
+        <menu>
+            <item
+                android:id="@+id/exit"
+                android:icon="@drawable/ic_exit"
+                android:title="@string/exit" />
+        </menu>
+    </item>
+
+</menu>
