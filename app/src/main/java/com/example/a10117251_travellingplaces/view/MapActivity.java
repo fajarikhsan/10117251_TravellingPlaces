@@ -27,6 +27,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.mapbox.mapboxsdk.Mapbox;
 import com.mapbox.mapboxsdk.camera.CameraPosition;
 import com.mapbox.mapboxsdk.camera.CameraUpdateFactory;
+import com.mapbox.mapboxsdk.location.LocationComponentActivationOptions;
 import com.mapbox.mapboxsdk.maps.MapView;
 import com.mapbox.mapboxsdk.maps.MapboxMap;
 import com.mapbox.mapboxsdk.maps.Style;
@@ -120,26 +121,12 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
 
                 double lat = Double.parseDouble(latitude);
                 double lng = Double.parseDouble(longitude);
-
-                Point asal = Point.fromLngLat(locationComponent.getLastKnownLocation().getLongitude(),
-                        locationComponent.getLastKnownLocation().getLatitude());
                 Point tujuan = Point.fromLngLat(lng, lat);
 
                 GeoJsonSource source = mapboxMap.getStyle().getSourceAs("destination-source-id");
                 if (source != null) {
                     source.setGeoJson(Feature.fromGeometry(tujuan));
                 }
-
-                getRoute(asal, tujuan);
-
-                CameraPosition position = new CameraPosition.Builder()
-                        .target(new LatLng(lat, lng))
-                        .zoom(14)
-                        .bearing(180)
-                        .tilt(30)
-                        .build();
-
-                mapboxMap.animateCamera(CameraUpdateFactory.newCameraPosition(position), 5000);
 
                 button = findViewById(R.id.startButton);
                 button.setOnClickListener(new View.OnClickListener() {
@@ -216,7 +203,7 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
             // Activate the MapboxMap LocationComponent to show user location
             // Adding in LocationComponentOptions is also an optional parameter
             locationComponent = mapboxMap.getLocationComponent();
-            locationComponent.activateLocationComponent(this, loadedMapStyle);
+            locationComponent.activateLocationComponent(LocationComponentActivationOptions.builder(this, loadedMapStyle).build());
             locationComponent.setLocationComponentEnabled(true);
             // Set the component's camera mode
             locationComponent.setCameraMode(CameraMode.TRACKING_COMPASS);
@@ -228,6 +215,29 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
                     locationComponent.zoomWhileTracking(16f);
                 }
             });
+
+            double lat = Double.parseDouble(latitude);
+            double lng = Double.parseDouble(longitude);
+
+            Point asal = Point.fromLngLat(locationComponent.getLastKnownLocation().getLongitude(),
+                    locationComponent.getLastKnownLocation().getLatitude());
+            Point tujuan = Point.fromLngLat(lng, lat);
+
+            GeoJsonSource source = mapboxMap.getStyle().getSourceAs("destination-source-id");
+            if (source != null) {
+                source.setGeoJson(Feature.fromGeometry(tujuan));
+            }
+
+            getRoute(asal, tujuan);
+
+            CameraPosition position = new CameraPosition.Builder()
+                    .target(new LatLng(lat, lng))
+                    .zoom(14)
+                    .bearing(180)
+                    .tilt(30)
+                    .build();
+
+            mapboxMap.animateCamera(CameraUpdateFactory.newCameraPosition(position), 5000);
 
         } else {
             permissionsManager = new PermissionsManager(this);

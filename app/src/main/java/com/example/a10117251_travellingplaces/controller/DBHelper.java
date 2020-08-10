@@ -27,7 +27,7 @@ public class DBHelper extends SQLiteOpenHelper {
     private static final int db_version = 1;
 
     //Perintah SQL untuk membuat tabel database baru
-    private static final String db_create = "CREATE TABLE "
+    private static final String db_create = "CREATE TABLE IF NOT EXISTS "
             + TABLE_NAME + "("
             + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
             + COLUMN_NAMA + " VARCHAR(100), "
