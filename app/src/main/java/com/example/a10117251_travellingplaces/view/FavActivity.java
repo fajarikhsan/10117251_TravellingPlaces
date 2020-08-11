@@ -9,7 +9,6 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.ButtonBarLayout;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -29,14 +28,10 @@ import com.google.android.material.navigation.NavigationView;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
-
-import com.example.a10117251_travellingplaces.R;
 
 public class FavActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -90,41 +85,13 @@ public class FavActivity extends AppCompatActivity implements NavigationView.OnN
         // set adapter pada list
         ListView listView = (ListView) findViewById(R.id.favList);
         listView.setAdapter(placesListAdapter);
-
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                ListView listView = (ListView) findViewById(R.id.favList);
-                final Model b = (Model) listView.getAdapter().getItem(i);
-                String[] pilihan = {"Ubah","Hapus"};
-                AlertDialog.Builder builder = new AlertDialog.Builder(FavActivity.this);
-                builder.setTitle("Pilihan");
-                builder.setItems(pilihan, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        switch (i){
-                            case 0 :
-                                Intent detail = new Intent(FavActivity.this, DetailActivity.class);
-                                detail.putExtra("id", b.getId());
-                                detail.putExtra("nama", b.getNama());
-                                startActivity(detail);
-                                break;
-
-                            case 1 :
-                                startActivity(getIntent());
-                                break;
-                        }
-                    }
-                });
-            }
-        });
     }
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
         switch (menuItem.getItemId()) {
             case  R.id.home :
-                Intent intent2 = new Intent(FavActivity.this,PrimaryActivity.class);
+                Intent intent2 = new Intent(FavActivity.this, PrimaryActivity.class);
                 startActivity(intent2);
                 break;
 
@@ -143,10 +110,20 @@ public class FavActivity extends AppCompatActivity implements NavigationView.OnN
                 break;
 
             case R.id.exit :
-                System.exit(0);
+                this.finishAffinity();
         }
 
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (drawer.isDrawerOpen(GravityCompat.START)) {
+            drawer.closeDrawer(GravityCompat.START);
+        } else {
+            super.onBackPressed();
+            return;
+        }
     }
 }

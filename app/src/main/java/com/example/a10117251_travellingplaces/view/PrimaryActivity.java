@@ -100,7 +100,7 @@ public class PrimaryActivity extends AppCompatActivity implements NavigationView
                 break;
 
             case R.id.exit :
-                System.exit(0);
+                this.finishAffinity();
         }
 
         drawer.closeDrawer(GravityCompat.START);

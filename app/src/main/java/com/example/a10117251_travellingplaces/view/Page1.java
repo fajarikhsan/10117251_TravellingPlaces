@@ -58,7 +58,7 @@ public class Page1 extends Fragment implements View.OnClickListener {
                 startActivity(i3);
                 break;
             case R.id.ib_exit :
-                System.exit(0);
+                getActivity().finishAffinity();
                 break;
         }
     }

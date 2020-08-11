@@ -8,7 +8,6 @@ package com.example.a10117251_travellingplaces.view;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -68,10 +67,20 @@ public class ActivityProfile extends AppCompatActivity implements NavigationView
                 break;
 
             case R.id.exit :
-                System.exit(0);
+                this.finishAffinity();
         }
 
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (drawer.isDrawerOpen(GravityCompat.START)) {
+            drawer.closeDrawer(GravityCompat.START);
+        } else {
+            super.onBackPressed();
+            return;
+        }
     }
 }
