@@ -30,7 +30,7 @@ public class ActivityProfile extends AppCompatActivity implements NavigationView
 
         Toolbar menuToolbar = findViewById(R.id.menuToolBar);
         setSupportActionBar(menuToolbar);
-        getSupportActionBar().setTitle("Profil");
+        getSupportActionBar().setTitle("Profile");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         drawer = findViewById(R.id.drawer_profile);
@@ -50,7 +50,6 @@ public class ActivityProfile extends AppCompatActivity implements NavigationView
         switch (menuItem.getItemId()) {
             case  R.id.home :
                 Intent intent2 = new Intent(ActivityProfile.this, PrimaryActivity.class);
-                finish();
                 startActivity(intent2);
                 break;
 
@@ -60,18 +59,15 @@ public class ActivityProfile extends AppCompatActivity implements NavigationView
 
             case  R.id.travelList :
                 Intent intent3 = new Intent(ActivityProfile.this, PlacesActivity.class);
-                finish();
                 startActivity(intent3);
                 break;
 
             case  R.id.favTravelList :
                 Intent intent4 = new Intent(ActivityProfile.this, FavActivity.class);
-                finish();
                 startActivity(intent4);
                 break;
 
             case R.id.exit :
-                finish();
                 System.exit(0);
         }
 

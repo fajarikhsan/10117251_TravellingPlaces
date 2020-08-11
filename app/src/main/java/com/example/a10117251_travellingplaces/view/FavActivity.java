@@ -125,19 +125,16 @@ public class FavActivity extends AppCompatActivity implements NavigationView.OnN
         switch (menuItem.getItemId()) {
             case  R.id.home :
                 Intent intent2 = new Intent(FavActivity.this,PrimaryActivity.class);
-                finish();
                 startActivity(intent2);
                 break;
 
             case R.id.profile :
                 Intent intent1 = new Intent(FavActivity.this, ActivityProfile.class);
-                finish();
                 startActivity(intent1);
                 break;
 
             case  R.id.travelList :
                 Intent intent3 = new Intent(FavActivity.this, PlacesActivity.class);
-                finish();
                 startActivity(intent3);
                 break;
 
@@ -146,7 +143,6 @@ public class FavActivity extends AppCompatActivity implements NavigationView.OnN
                 break;
 
             case R.id.exit :
-                finish();
                 System.exit(0);
         }
 

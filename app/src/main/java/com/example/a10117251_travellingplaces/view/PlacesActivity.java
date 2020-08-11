@@ -88,34 +88,6 @@ public class PlacesActivity extends AppCompatActivity implements NavigationView.
         // set adapter pada list
         ListView listView = (ListView) findViewById(R.id.placesList);
         listView.setAdapter(placesListAdapter);
-
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                ListView listView = (ListView) findViewById(R.id.placesList);
-                final Model b = (Model) listView.getAdapter().getItem(i);
-                String[] pilihan = {"Ubah","Hapus"};
-                AlertDialog.Builder builder = new AlertDialog.Builder(PlacesActivity.this);
-                builder.setTitle("Pilihan");
-                builder.setItems(pilihan, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        switch (i){
-                            case 0 :
-                                Intent detail = new Intent(PlacesActivity.this, DetailActivity.class);
-                                detail.putExtra("id", b.getId());
-                                detail.putExtra("nama", b.getNama());
-                                startActivity(detail);
-                                break;
-
-                            case 1 :
-                                startActivity(getIntent());
-                                break;
-                        }
-                    }
-                });
-            }
-        });
     }
 
     @Override
@@ -123,13 +95,11 @@ public class PlacesActivity extends AppCompatActivity implements NavigationView.
         switch (menuItem.getItemId()) {
             case  R.id.home :
                 Intent intent2 = new Intent(PlacesActivity.this,PrimaryActivity.class);
-                finish();
                 startActivity(intent2);
                 break;
 
             case R.id.profile :
                 Intent intent3 = new Intent(PlacesActivity.this, ActivityProfile.class);
-                finish();
                 startActivity(intent3);
                 break;
 
@@ -139,12 +109,10 @@ public class PlacesActivity extends AppCompatActivity implements NavigationView.
 
             case  R.id.favTravelList :
                 Intent intent4 = new Intent(PlacesActivity.this, FavActivity.class);
-                finish();
                 startActivity(intent4);
                 break;
 
             case R.id.exit :
-                finish();
                 System.exit(0);
         }
 

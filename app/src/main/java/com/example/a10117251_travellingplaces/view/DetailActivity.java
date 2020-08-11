@@ -18,7 +18,6 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.codesgood.views.JustifiedTextView;
 import com.example.a10117251_travellingplaces.R;
 import com.example.a10117251_travellingplaces.controller.DBDataSource;
 import com.example.a10117251_travellingplaces.model.Model;
@@ -52,7 +51,7 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
                 (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);
 
         tv_nama = (TextView) findViewById(R.id.detail_title);
-        tv_deskripsi = (JustifiedTextView) findViewById(R.id.detail_deskripsi);
+        tv_deskripsi = (TextView) findViewById(R.id.detail_deskripsi);
         iv_image = (ImageView) findViewById(R.id.detail_image);
 
         //buat sambungan baru ke database

@@ -86,24 +86,20 @@ public class PrimaryActivity extends AppCompatActivity implements NavigationView
 
             case R.id.profile :
                 Intent intent = new Intent(PrimaryActivity.this,ActivityProfile.class);
-                finish();
                 startActivity(intent);
                 break;
 
             case  R.id.travelList :
                 Intent intent2 = new Intent(PrimaryActivity.this, PlacesActivity.class);
-                finish();
                 startActivity(intent2);
                 break;
 
             case  R.id.favTravelList :
                 Intent intent4 = new Intent(PrimaryActivity.this, FavActivity.class);
-                finish();
                 startActivity(intent4);
                 break;
 
             case R.id.exit :
-                finish();
                 System.exit(0);
         }
 

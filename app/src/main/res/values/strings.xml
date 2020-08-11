@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">TravellingPlaces</string>
+    <string name="app_name">Travelling Places</string>
     <string name="access_token">sk.eyJ1IjoiZmFqYXJpa2hzYW4iLCJhIjoiY2tkangzeGhvMGlzdzJ6cm9sMjRhMHBrZyJ9.Cz6TKfytiIB7UirHH06CZg</string>
     <string name="_10117251">10117251</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>

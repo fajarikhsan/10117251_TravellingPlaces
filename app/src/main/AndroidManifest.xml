@@ -13,11 +13,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".view.FavActivity"></activity>
+        <activity android:name=".view.FavActivity"
+            android:parentActivityName=".view.PrimaryActivity"></activity>
         <activity android:name=".view.DetailActivity" />
-        <activity android:name=".view.PlacesActivity" />
+        <activity android:name=".view.PlacesActivity"
+            android:parentActivityName=".view.PrimaryActivity"/>
         <activity android:name=".view.MapActivity" />
-        <activity android:name=".view.ActivityProfile" />
+        <activity android:name=".view.ActivityProfile"
+            android:parentActivityName=".view.PrimaryActivity"/>
         <activity
             android:name=".view.PrimaryActivity"
             android:theme="@style/AppTheme.NoActionBar" />

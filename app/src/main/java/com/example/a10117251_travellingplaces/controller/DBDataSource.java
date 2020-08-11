@@ -49,45 +49,6 @@ public class DBDataSource extends AppCompatActivity {
         dbHelper.close();
     }
 
-    //method untuk create/insert barang ke database
-    public Model inputData(String nama, String deskripsi, String latitude, String longitude, String image) {
-
-        // membuat sebuah ContentValues, yang berfungsi
-        // untuk memasangkan data dengan nama-nama
-        // kolom pada database
-        ContentValues values = new ContentValues();
-        values.put(DBHelper.COLUMN_NAMA, nama);
-        values.put(DBHelper.COLUMN_DESKRIPSI, deskripsi);
-        values.put(DBHelper.COLUMN_LATITUDE, latitude);
-        values.put(DBHelper.COLUMN_LONGITUDE, longitude);
-        values.put(DBHelper.COLUMN_IMAGE, image);
-
-        // mengeksekusi perintah SQL insert data
-        // yang akan mengembalikan sebuah insert ID
-        long insertId = database.insert(DBHelper.TABLE_NAME, null, values);
-
-        // setelah data dimasukkan, memanggil
-        // perintah SQL Select menggunakan Cursor untuk
-        // melihat apakah data tadi benar2 sudah masuk
-        // dengan menyesuaikan ID = insertID
-        Cursor cursor = database.query(DBHelper.TABLE_NAME,
-                allColumns, DBHelper.COLUMN_ID + " = " + insertId, null,
-                null, null, null);
-
-        // pindah ke data paling pertama
-        cursor.moveToFirst();
-
-        // mengubah objek pada kursor pertama tadi
-        // ke dalam objek model
-        Model newTeman = cursorToModel(cursor);
-
-        // close cursor
-        cursor.close();
-
-        // mengembalikan teman baru
-        return newTeman;
-    }
-
     private Model cursorToModel(Cursor cursor)
     {
         // buat objek barang baru
